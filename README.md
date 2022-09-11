@@ -1,3 +1,36 @@
+## Deploy on Heroku
+
+1.Udemy course    
+
+[UdemyHeroku Deploy](https://www.udemy.com/course/nextjs-dev-to-deployment/learn/lecture/26055706#questions/15072340)
+
+2.[Heroku](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/heroku.html#heroku-install-requirements)
+
+3.Make sure you run the configuration below
+
+### 5. Create your Strapi server config for production
+
+````
+heroku config:set MY_HEROKU_URL=$(heroku info -s | grep web_url | cut -d= -f2)
+heroku config:set APP_KEYS=$(cat .env | grep APP_KEYS | cut -d= -f2-)
+heroku config:set API_TOKEN_SALT=$(cat .env | grep API_TOKEN_SALT | cut -d= -f2)
+heroku config:set ADMIN_JWT_SECRET=$(cat .env | grep ADMIN_JWT_SECRET | cut -d= -f2)
+heroku config:set JWT_SECRET=$(cat .env | grep -w JWT_SECRET | cut -d= -f2)
+heroku config:set APP_KEYS=$(openssl rand -base64 32)
+heroku config:set API_TOKEN_SALT=$(openssl rand -base64 32)
+heroku config:set ADMIN_JWT_SECRET=$(openssl rand -base64 32)
+heroku config:set JWT_SECRET=$(openssl rand -base64 32)
+
+````
+
+
+
+6.[git, Heroku: pre-receive hook declined](https://stackoverflow.com/questions/8216586/git-heroku-pre-receive-hook-declined)
+
+
+
+7.[@strapi/provider-upload-cloudinary](https://www.npmjs.com/package/@strapi/provider-upload-cloudinary/v/4.3.8)
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
