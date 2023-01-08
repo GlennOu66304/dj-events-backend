@@ -1,3 +1,8 @@
+## Deploy the project to render due to the Charging Start to the Heroku project:
+[Modify an Existing Strapi Project for Render](https://render.com/docs/deploy-strapi)
+
+
+
 ## Deploy on Heroku
 
 1.Udemy course    
